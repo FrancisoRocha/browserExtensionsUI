@@ -103,6 +103,25 @@ body{
 }
 
 /* FILTERS AND CARDS */
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+@media(min-width: 768px){
+    .container{
+        width: 70.4rem;
+        margin: 0 auto;
+    }
+}
+
+@media(min-width: 1440px){
+    .container{
+        width: 117rem;
+        margin: 0 auto;
+    }
+}
 
 /* CONTAINER FILTERS */
 .container__filters{
@@ -111,6 +130,18 @@ body{
     align-items: center;
     gap: 2.4rem;
 }
+
+@media(min-width: 768px){
+    .container__filters{
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+    }
+    .filters{
+        margin-left: auto
+    };
+}
+
 
 .title__container{
     font-family: 'NotoBold';
@@ -125,13 +156,168 @@ body{
 }
 
 .all,
-.active,
+.actives,
 .inactive{
     font-family: 'NotoRegular';
     text-decoration: none;
     font-size: 2rem;
     text-align: left;
     line-height: 140%;
+    border-radius: 99rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.all:focus,
+.actives:focus,
+.inactive:focus{
+    box-shadow: 0 0 0px 2px var(--reed-400);
+    outline: none;
+}
+
+.all{
+    width: 6.3rem;
+    height: 4.6rem;
+}
+
+.actives{
+    width: 9.5rem;
+    height: 4.6rem;
+}
+
+.inactive{
+    width: 11.2rem;
+    height: 4.6rem;
+}
+
+/* CARD EXTENSIONS */
+
+.cards__extensions{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    gap: 1.5rem;
+    margin-bottom: 6.4rem;
+}
+
+@media(min-width: 768px){
+    .cards__extensions{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1440px){
+    .cards__extensions{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card{
+    width: 34.3rem;
+    height: 20rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card__info{
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.title__card{
+    font-family: 'NotoBold';
+    font-size: 2rem;
+    text-align: left;
+    line-height: 120%;
+}
+
+.description__card{
+    font-family: 'NotoRegular';
+    font-size: 1.6rem;
+    text-align: left;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+}
+
+/* ACTIONS */
+
+.card__actions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn__delete{
+    width: 9.1rem;
+    height: 3.8rem;
+    border-radius: 99rem;
+    font-family: 'NotoMedium';
+    font-size: 1.6rem;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* TOGGLE SWITCH ACTIVE OR NOT ACTIVE */
+
+.switch {
+  position: relative;
+  height: 1.5rem;
+  width: 3rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  background-color: rgba(100, 116, 139, 0.377);
+  transition: all .3s ease;
+  margin-left: auto;
+}
+
+.switch:checked {
+  background-color: rgb(236, 72, 72);
+}
+
+.switch::before {
+  position: absolute;
+  content: "";
+  left: calc(1.5rem - 1.6rem);
+  top: calc(1.5rem - 1.6rem);
+  display: block;
+  height: 1.6rem;
+  width: 1.6rem;
+  cursor: pointer;
+  border: 1px solid rgba(100, 116, 139, 0.527);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327);
+  transition: all .3s ease;
+}
+
+.switch:hover::before {
+  box-shadow: 0 0 0px 8px rgba(0, 0, 0, .15)
+}
+
+.switch:checked:hover::before {
+  box-shadow: 0 0 0px 8px rgba(236, 72, 72, .15)
+}
+
+.switch:checked:before {
+  transform: translateX(100%);
+  border-color: rgba(236, 72, 72, 1);
 }
 
 /* DARK */
@@ -160,10 +346,43 @@ body.dark{
 }
 
 .all.dark,
-.active.dark,
+.actives.dark,
 .inactive.dark{
     color: var(--neutral-0);
+    background-color: var(--neutral-700);
+    border: .2rem solid var(--neutral-600);
+    transition: all 300ms;
 }
+
+.all.dark:hover,
+.actives.dark:hover,
+.inactive.dark:hover{
+    background-color: var(--neutral-600);
+    transition: all 300ms;
+}
+
+.all.dark.active,
+.actives.dark.active,
+.inactive.dark.active{
+    background-color: var(--reed-400);
+    color: var(--neutral-900);
+}
+
+.card.dark,
+.btn__delete.dark{
+    background-color: var(--neutral-800);
+    border: .1rem solid var(--neutral-600);
+}
+
+.title__card.dark,
+.btn__delete.dark{
+    color: var(--neutral-0);
+}
+
+.description__card.dark{
+    color: var(--neutral-300);
+}
+
 
 /* LIGHT */
 
@@ -187,12 +406,44 @@ body.light{
     transition: all 300ms;
 }
 
-.title__container.light{
+.title__container.light,
+.btn__delete.light{
     color: var(--neutral-900);
 }
 
 .all.light,
-.active.light,
+.actives.light,
 .inactive.light{
     color: var(--neutral-900);
+    background-color: var(--neutral-0);
+    border: .2rem solid var(--neutral-200);
+    transition: all 300ms;
+}
+
+.all.light:hover,
+.actives.light:hover,
+.inactive.light:hover{
+    transition: all 300ms;
+    background-color: var(--neutral-100);
+}
+
+.all.light.active,
+.actives.light.active,
+.inactive.light.active{
+    background-color: var(--reed-500);
+    color: var(--neutral-0);
+}
+
+.card.light,
+.btn__delete.light{
+    background-color: var(--neutral-0);
+    border: .1rem solid var(--neutral-200);
+}
+
+.title__card.light{
+    color: var(--neutral-900);
+}
+
+.description__card.light{
+    color: var(--neutral-600);
 }
