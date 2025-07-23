@@ -1,22 +1,22 @@
 import { API_EXTENSIONS } from "./config.js";
+import { renderExtension } from "./render.js";
+
+/**
+ * Obtiene las extensiones desde la API y las renderiza.
+ * 
+ * @returns {Promise<any>} Resultado de la función renderExtension con los datos obtenidos
+ */
 
 // METHOD: GET
 export const getExtension = async () => {
 
-  try{ // Inicia el bloque para manejar errores
-    const response = await fetch(API_EXTENSIONS); // Solicitud a la API de extensiones
+  const url = API_EXTENSIONS; 
+  const res = await fetch(url); // Solicitud a la API de extensiones
 
-    if(!response.ok){
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+  const data = await res.json(); // Obtiene los datos en formato JSON
+  console.log(data); // Imprime los datos obtenidos de la API
 
-    const data = await response.json(); // Obtiene los datos en formato JSON
-    console.log(data); // Imprime los datos obtenidos de la API
-    return data; // Retorna los datos obtenidos de la API
-
-  }catch(error){
-    console.log('Error fetching extensions', error);
-    throw error; // Lanza el error para que sea manejado
-  }
+  const render = renderExtension(data) 
+  return render; // Llama la función que renderiza las extensiones
 
 }

@@ -5,17 +5,7 @@ import { toggleTheme } from "./toggleTheme.js"
 document.addEventListener('DOMContentLoaded', () => {
 
   toggleTheme()
+  getExtension();
 
 })
 
-try{
-
-  const extensions = await getExtension();
-  console.log('Extensions loades:', extensions);
-  renderExtension(extensions);
-
-} catch(error){
-
-  console.log('Error loading extensions', error);
-
-}
