@@ -14,7 +14,7 @@ export const getExtension = async () => {
     console.log(data); // Imprime los datos obtenidos de la API
     return data; // Retorna los datos obtenidos de la API
 
-  } catch(error){
+  }catch(error){
     console.log('Error fetching extensions', error);
     throw error; // Lanza el error para que sea manejado
   }
