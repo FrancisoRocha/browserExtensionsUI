@@ -17,7 +17,7 @@ export const renderExtension = (extensions) => {
   // RENDERIZAR EXTENSIONES
   extensions.forEach(extension => {
 
-    const { logo, name, description, isActive } = extension;
+    const { logo, name, description, isActive, id } = extension;
 
     const cardExtension = document.createElement('DIV');
     cardExtension.classList.add('card', 'light');
@@ -35,7 +35,7 @@ export const renderExtension = (extensions) => {
           <!-- ACTIONS-->
           <div class="card__actions">
               <button class="btn__delete light" data-name="${name}">Remove</button>
-              <input ${isActive ? 'checkd' : ''} type="checkbox" class="switch" data-name="${name}">
+              <input ${ isActive ? 'checked' : '' } type="checkbox" class="switch" data-id="${id}">
           </div>
       `;
 
