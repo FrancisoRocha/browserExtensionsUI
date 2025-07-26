@@ -271,6 +271,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 /* TOGGLE SWITCH ACTIVE OR NOT ACTIVE */
 

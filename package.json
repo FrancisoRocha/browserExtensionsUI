@@ -1,0 +1,45 @@
+{
+  "name": "browser-extensions-manager-ui",
+  "version": "1.0.0",
+  "description": "Browser Extensions Manager UI with CRUD functionality",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "api": "json-server --watch data.json --port 3000",
+    "start": "npm run api",
+    "dev:full": "concurrently \"npm run api\" \"npm run dev\"",
+    "install-deps": "npm install",
+    "serve": "live-server --port=5500"
+  },
+  "keywords": [
+    "browser-extensions",
+    "manager",
+    "ui",
+    "frontend",
+    "crud",
+    "json-server",
+    "sweetalert"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.10.1"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4",
+    "live-server": "^1.2.2",
+    "vite": "^5.0.0",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
