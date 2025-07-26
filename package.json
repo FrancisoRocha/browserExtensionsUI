@@ -30,9 +30,7 @@
   },
   "devDependencies": {
     "json-server": "^0.17.4",
-    "live-server": "^1.2.2",
-    "vite": "^5.0.0",
-    "concurrently": "^8.2.2"
+    "live-server": "^1.2.2"
   },
   "engines": {
     "node": ">=14.0.0",
